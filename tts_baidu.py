@@ -33,8 +33,11 @@ def genTTSUrl(lan,txt,spd):
     "ie":"UTF-8",
     "spd":spd,
     "text":txt,
+    "source":"web"
     }
-    ttsUrl = "http://tts.baidu.com/text2audio?"+urllib.parse.urlencode(data)
+    #https://fanyi.baidu.com/gettts?lan=zh&text=大家好,。&spd=5&source=web
+    ttsUrl = "https://fanyi.baidu.com/gettts?"+urllib.parse.urlencode(data)
+    #ttsUrl = "http://tts.baidu.com/text2audio?"+urllib.parse.urlencode(data)
     return ttsUrl
 
 class TaskMaster:
@@ -63,7 +66,7 @@ class TaskMaster:
         if(lan == "zh"):#中文的简单断句
             inc1 ="。"
             #inc2 ="，"
-            self.spd = 6
+            self.spd = 5
         if(lan == "en"):#英文的简单断句
             inc1 ="."
             #inc2 =","
